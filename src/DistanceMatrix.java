@@ -242,6 +242,62 @@ public class DistanceMatrix {
         return route;
     }
 
+    // 2-opt algorithm
+
+    public int[] get2OptRoute() {
+        int numLocations = distanceMatrix.length;
+        int[] route = new int[numLocations];
+
+        // Initialize the route as the default order of locations (0, 1, 2, 3)
+        for (int i = 0; i < numLocations; i++) {
+            route[i] = i;
+        }
+
+        // Keep track of the best route and distance
+        int[] bestRoute = Arrays.copyOf(route, numLocations);
+        int bestDistance = getRouteDistance(bestRoute);
+
+        // Keep track of whether any improvements have been made
+        boolean improved = true;
+
+        // Keep looking until no improvements are found
+        while (improved) {
+            improved = false;
+
+            // Try reversing segments of the route
+            for (int i = 1; i < numLocations - 1; i++) {
+                for (int j = i + 1; j < numLocations; j++) {
+                    // Reverse the segment from i to j
+                    reverse(route, i, j);
+
+                    // Check if the new route is better
+                    int distance = getRouteDistance(route);
+                    if (distance < bestDistance) {
+                        bestRoute = Arrays.copyOf(route, numLocations);
+                        bestDistance = distance;
+                        improved = true;
+                    }
+
+                    // Reverse the segment back to its original order
+                    reverse(route, i, j);
+                }
+            }
+        }
+
+        return bestRoute;
+    }
+
+    private void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+
     //get the distance between all points in the route
 
     public int getRouteDistance(int[] route) {

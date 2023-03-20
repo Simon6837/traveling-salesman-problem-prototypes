@@ -8,6 +8,12 @@ public class App {
         int[] productCords3 = new int[] { 2, 3 };
         // create the distance matrix based on the above cords
         DistanceMatrix store = new DistanceMatrix(productCords1, productCords2, productCords3);
+        store.setDistanceMatrix(new int[][] {
+                { 0, 79, 32, 3 },
+                { 79, 0, 79, 75 },
+                { 32, 79, 0, 30 },
+                { 3, 75, 30, 0 }
+        });
         // print the cords and distance matrix
         System.out.println(store.toString());
         store.printDistanceMatrix();
@@ -21,6 +27,10 @@ public class App {
         long farthestInsertionStartTime = System.nanoTime();
         int[] farthestInsertion = store.getFarthestInsertionRoute();
         long farthestInsertionEndTime = System.nanoTime();
+        long twoOptStartTime = System.nanoTime();
+        int[] twoOpt = store.get2OptRoute();
+        long twoOptEndTime = System.nanoTime();
+
         // Print the routes
         System.out.println("\n");
         System.out.println("Nearest Neighbor Route:");
@@ -37,5 +47,10 @@ public class App {
         System.out.println(Arrays.toString(farthestInsertion));
         System.out.println("Total distance: " + store.getRouteDistance(farthestInsertion));
         System.out.println("Time taken: " + (farthestInsertionEndTime - farthestInsertionStartTime) + "ns");
+        System.out.println("\n");
+        System.out.println("2-Opt Route:");
+        System.out.println(Arrays.toString(twoOpt));
+        System.out.println("Total distance: " + store.getRouteDistance(twoOpt));
+        System.out.println("Time taken: " + (twoOptEndTime - twoOptStartTime) + "ns");
     }
 }
