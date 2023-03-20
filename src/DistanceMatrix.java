@@ -46,6 +46,11 @@ public class DistanceMatrix {
         return matrix;
     }
 
+    //set the distance matrix manualy
+    public void setDistanceMatrix(int[][] distanceMatrix) {
+        this.distanceMatrix = distanceMatrix;
+    }
+
     public void printDistanceMatrix() {
         for (int[] row : distanceMatrix) {
             System.out.println(Arrays.toString(row));
