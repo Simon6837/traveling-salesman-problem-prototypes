@@ -236,4 +236,15 @@ public class DistanceMatrix {
 
         return route;
     }
+
+    //get the distance between all points in the route
+
+    public int getRouteDistance(int[] route) {
+        int distance = 0;
+        for (int i = 1; i < route.length; i++) {
+            distance += distanceMatrix[route[i - 1]][route[i]];
+        }
+        distance += distanceMatrix[route[route.length - 1]][route[0]]; // add distance back to start
+        return distance;
+    }
 }
