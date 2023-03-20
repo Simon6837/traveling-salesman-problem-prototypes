@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] productCords1 = new int[] { 1, 1 };
-        int[] productCords2 = new int[] { 1, 1 };
-        int[] productCords3 = new int[] { 1, 1 };
+        int[] productCords1 = new int[] { 1, 3 };
+        int[] productCords2 = new int[] { 5, 2 };
+        int[] productCords3 = new int[] { 9, 3 };
 
         DistanceMatrix store = new DistanceMatrix(productCords1, productCords2, productCords3);
 
