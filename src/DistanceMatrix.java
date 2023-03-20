@@ -26,10 +26,6 @@ public class DistanceMatrix {
         distanceMatrix = createDistanceMatrix();
     }
 
-    public DistanceMatrix(int[][] distanceMatrix2) {
-        distanceMatrix = distanceMatrix2;
-    }
-
     public int[][] createDistanceMatrix() {
         int[][] matrix = new int[4][4];
         matrix[0][0] = 0;
