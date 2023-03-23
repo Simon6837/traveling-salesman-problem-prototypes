@@ -1,18 +1,14 @@
-## Getting Started
+## Traveling salesman problem(Tsp)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This repository contains the Java prototypes for the TSP algoritms for our warehous robot
 
-## Folder Structure
+We have the following algoritms
 
-The workspace contains two folders by default, where:
-
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
- If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+		Brute Force
+		Nearest neighbour
+		farthest insertion
+		2-opt
+  
+By editing the distance matrix we can run various datasets.
+When you run the program all the algoritms will get called in the main function.
+It then displays the runtime and the route for each algoritm in the console
